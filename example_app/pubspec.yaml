@@ -1,0 +1,23 @@
+name: otel_provider_example
+publish_to: none
+description: Runnable Flutter demo of `otel_provider` against a local LGTM stack.
+
+environment:
+  sdk: ^3.0.0
+  flutter: ">=3.10.0"
+
+dependencies:
+  otel_provider:
+    path: ..
+  # Example apps use the Pro SDK to demonstrate the one-character
+  # switch (OTel.initialize -> DOTel.initialize). The package itself
+  # still depends only on the OSS SDK so non-Pro users can keep it.
+  dartastic_opentelemetry_pro:
+    path: ../../../pro/dartastic_opentelemetry_pro
+  flutter:
+    sdk: flutter
+  provider: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
