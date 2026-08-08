@@ -1,18 +1,17 @@
 # otel_provider example app
 
-A standalone runnable Flutter demo of `otel_provider`
-exporting telemetry to a local LGTM stack (Grafana + Loki + Tempo +
-Mimir). Uses `DOTel.initialize` from the Pro SDK to demonstrate the
-one-character switch.
+A standalone runnable Flutter demo of `otel_provider` exporting
+telemetry over OTLP to any OpenTelemetry-compatible backend.
 
 ## Run
 
 ```sh
-# 1. Start the LGTM stack (from the dartastic-pro repo root)
-docker compose -f tool/lgtm/docker-compose.yml up -d
+# 1. Have an OTLP/HTTP collector listening on localhost:4318
+#    (any OpenTelemetry-compatible collector works), or set
+#    OTEL_EXPORTER_OTLP_ENDPOINT to yours.
 
 # 2. Run the app — web is easiest
-cd dart/otel_provider/example_app
+cd example_app
 flutter pub get
 flutter run -d chrome
 ```
@@ -36,7 +35,7 @@ the models and you'll also see `notifier.disposed:_Counter` and
 
 ## Where to look
 
-Grafana → Explore → Tempo datasource:
+In your trace viewer:
 
 - Service name: `provider-otel-example-app`
 - Search for `name="notifier.notify:_Counter"` to see every counter

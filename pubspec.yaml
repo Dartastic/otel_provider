@@ -1,9 +1,9 @@
 name: otel_provider
-description: OpenTelemetry instrumentation for `package:provider`. A mixin
-  on `ChangeNotifier` that emits short spans on every notifyListeners /
-  dispose. Works with any ChangeNotifier — provider just happens to be
-  the most common consumer.
-version: 0.1.0-beta.2-wip
+description: >-
+  OpenTelemetry instrumentation for `package:provider`. A `ChangeNotifier`
+  mixin emitting short spans on every notifyListeners and dispose - works
+  with any ChangeNotifier.
+version: 0.2.0-wip
 repository: https://github.com/dartastic/otel_provider
 homepage: https://dartastic.io
 
@@ -12,8 +12,8 @@ environment:
   flutter: ">=3.10.0"
 
 dependencies:
-  dartastic_opentelemetry: ^1.1.0-beta.4
-  dartastic_opentelemetry_api: ^1.0.0-beta.6
+  dartastic_opentelemetry: ^1.1.0-beta.12
+  dartastic_opentelemetry_api: ^1.0.0-rc.1
   flutter:
     sdk: flutter
 

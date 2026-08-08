@@ -1,25 +1,21 @@
 // Licensed under the Apache License, Version 2.0
 // Copyright 2025, Mindful Software LLC, All rights reserved.
 
-/// Runnable Flutter demo of `otel_provider` against a local LGTM stack.
+/// Runnable Flutter demo of `otel_provider`.
 ///
-/// Run the stack:
-///   docker compose -f ../../../tool/lgtm/docker-compose.yml up -d
-///
-/// Then run this app on any Flutter device (web is easiest):
+/// Point any OpenTelemetry-compatible collector at OTLP/HTTP on
+/// `http://localhost:4318` (or set `OTEL_EXPORTER_OTLP_ENDPOINT`),
+/// then run this app on any Flutter device (web is easiest):
 ///   flutter run -d chrome
 ///
-/// Click the buttons in the UI. Open Grafana (http://localhost:3000)
-/// → Explore → Tempo, search for service `provider-otel-example-app`
-/// to see one trace per `notifyListeners()` and `dispose()`.
+/// Click the buttons in the UI, then search your trace viewer for
+/// service `provider-otel-example-app` to see one span per
+/// `notifyListeners()` and `dispose()`.
 library;
 
 import 'dart:io' show Platform;
 
-// Example apps use the Pro SDK to demonstrate the one-character
-// switch (OTel.initialize -> DOTel.initialize). The package source
-// still imports the OSS SDK directly so non-Pro users can use it.
-import 'package:dartastic_opentelemetry_pro/dartastic_opentelemetry_pro.dart';
+import 'package:dartastic_opentelemetry/dartastic_opentelemetry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:otel_provider/otel_provider.dart';
@@ -32,7 +28,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final endpoint = _readEndpoint();
 
-  await DOTel.initialize(
+  await OTel.initialize(
     serviceName: _serviceName,
     serviceVersion: '0.0.1',
     endpoint: endpoint,

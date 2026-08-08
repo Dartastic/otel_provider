@@ -6,7 +6,7 @@ and any code using `ChangeNotifier`. Built on the
 
 Mix in `OTelChangeNotifierMixin` on your notifier and every
 `notifyListeners()` + `dispose()` produces a short span — your
-state-mutation timeline in Tempo, automatically.
+state-mutation timeline in your trace viewer, automatically.
 
 ```dart
 class CartModel extends ChangeNotifier with OTelChangeNotifierMixin {
@@ -49,7 +49,7 @@ no API for downstream callers to learn.
 `notifyListeners` with no current listeners short-circuits — no span
 is emitted. This matches `ChangeNotifier`'s own behavior (it doesn't
 dispatch when nobody is listening), and prevents off-screen models
-from polluting your Tempo view with noise.
+from polluting your traces with noise.
 
 ## ValueNotifier support
 

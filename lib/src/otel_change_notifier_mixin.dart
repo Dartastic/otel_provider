@@ -43,8 +43,8 @@ mixin OTelChangeNotifierMixin on ChangeNotifier {
   // are imported. Cached after first use because tracer lookup is
   // cheap but still does a map traversal.
   Tracer? _otelTracer;
-  Tracer get _tracer => _otelTracer ??=
-      OTel.tracerProvider().getTracer('otel_provider');
+  Tracer get _tracer =>
+      _otelTracer ??= OTel.tracerProvider().getTracer('otel_provider');
 
   /// When `true`, `notify` spans on `ValueNotifier<T>` include
   /// `notifier.value` (clipped to [otelValueMaxLength]) and

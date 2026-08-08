@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0-beta.2-wip]
+## [0.2.0-wip]
+
+### Changed
+
+- Example app initializes via `OTel.initialize` and exports plain
+  OTLP to any OpenTelemetry-compatible backend.
+- Added `example/example.md` so a usage example ships with the
+  published package.
 
 ## [0.1.0-beta.1] - 2026-05-16
 
@@ -37,6 +44,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ValueNotifier` without `recordValues` records neither.
 - Flutter example app with `ChangeNotifierProvider` +
   `ValueNotifier`-based message model; `flutter run -d chrome` and
-  click around to see the timeline in Grafana.
-- Uses `DOTel.initialize` from the start to demonstrate the
-  Pro SDK's one-character switch.
+  click around to see the notification timeline in any
+  OTLP-compatible trace viewer.
