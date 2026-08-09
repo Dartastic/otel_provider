@@ -3,7 +3,7 @@ description: >-
   OpenTelemetry instrumentation for `package:provider`. A `ChangeNotifier`
   mixin emitting short spans on every notifyListeners and dispose - works
   with any ChangeNotifier.
-version: 0.2.0-wip
+version: 0.2.0
 repository: https://github.com/dartastic/otel_provider
 homepage: https://dartastic.io
 
