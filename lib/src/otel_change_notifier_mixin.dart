@@ -1,7 +1,7 @@
 // Licensed under the Apache License, Version 2.0
 // Copyright 2025, Mindful Software LLC, All rights reserved.
 
-import 'package:dartastic_opentelemetry/dartastic_opentelemetry.dart';
+import 'package:dartastic_opentelemetry_api/dartastic_opentelemetry_api.dart';
 import 'package:flutter/foundation.dart';
 
 import 'provider_semantics.dart';
@@ -42,9 +42,9 @@ mixin OTelChangeNotifierMixin on ChangeNotifier {
   // Lazily resolved so OTel.initialize can run after mixin'd notifiers
   // are imported. Cached after first use because tracer lookup is
   // cheap but still does a map traversal.
-  Tracer? _otelTracer;
-  Tracer get _tracer =>
-      _otelTracer ??= OTel.tracerProvider().getTracer('otel_provider');
+  APITracer? _otelTracer;
+  APITracer get _tracer =>
+      _otelTracer ??= OTelAPI.tracerProvider().getTracer('otel_provider');
 
   /// When `true`, `notify` spans on `ValueNotifier<T>` include
   /// `notifier.value` (clipped to [otelValueMaxLength]) and
@@ -99,7 +99,7 @@ mixin OTelChangeNotifierMixin on ChangeNotifier {
 
     final span = _tracer.startSpan(
       'notifier.$event:$name',
-      attributes: OTel.attributesFromMap(attrs),
+      attributes: OTelAPI.attributesFromMap(attrs),
     );
     span.end();
   }
