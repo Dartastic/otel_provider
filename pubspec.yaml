@@ -2,7 +2,7 @@ name: otel_provider
 description: >-
   OpenTelemetry instrumentation for provider by Dartastic.io. Adds standard
   OpenTelemetry observability to applications that use provider.
-version: 0.3.1
+version: 0.3.2-wip
 repository: https://github.com/dartastic/otel_provider
 homepage: https://dartastic.io
 
